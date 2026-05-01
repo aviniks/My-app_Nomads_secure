@@ -1,5 +1,5 @@
 import React from "react";
-//import { useState, useEffect, useRef } from "react";
+
 
 // ── CSS VARIABLES & GLOBAL STYLES ──
 const GlobalStyles = () => (
@@ -1050,7 +1050,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [toast, setToast] = useState(null);
 
-  //const showToast = (msg) => setToast(msg);
+ 
 
   const renderPage = () => {
     switch(currentPage) {
