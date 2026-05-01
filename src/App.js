@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import React from "react";
+//import { useState, useEffect, useRef } from "react";
 
 // ── CSS VARIABLES & GLOBAL STYLES ──
 const GlobalStyles = () => (
@@ -1031,9 +1032,9 @@ function Footer({ setCurrentPage }) {
         </div>
         <div className="footer-links">
           <h5>Legal</h5>
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Cookie Policy</a>
+          <a href="/Privacy-Policy.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+          <a href="/Terms-of-service.pdf" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+          //<a href="#">Cookie Policy</a>
         </div>
       </div>
       <div className="footer-bottom">
@@ -1049,7 +1050,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const [toast, setToast] = useState(null);
 
-  const showToast = (msg) => setToast(msg);
+  //const showToast = (msg) => setToast(msg);
 
   const renderPage = () => {
     switch(currentPage) {
