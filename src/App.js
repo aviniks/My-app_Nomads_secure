@@ -408,7 +408,7 @@ function Navbar({ currentPage, setCurrentPage }) {
       <div className="nav-inner">
         <div className="nav-logo" onClick={() => nav("home")}>
           <img
-            src="/mnt/user-data/uploads/logo.png"
+            src="/logo.png"
             alt="NOMADS Secure Logo"
             className="nav-logo-img"
           />
@@ -550,7 +550,7 @@ function HomePage({ setCurrentPage }) {
       <section className="hero-banner-section">
         <img
           className="hero-banner-bg"
-          src="/mnt/user-data/uploads/banner.png"
+          src="/banner.png"
           alt="NOMADS Secure Hero Banner"
         />
         <div className="hero-banner-overlay" />
@@ -1009,7 +1009,7 @@ function Footer({ setCurrentPage }) {
       <div className="footer-inner">
         <div className="footer-brand">
           <div className="footer-logo">
-            <img src="/mnt/user-data/uploads/logo.png" alt="NOMADS Secure" style={{height:"48px",width:"auto",objectFit:"contain",filter:"brightness(0) invert(1)"}} />
+            <img src="/logo.png" alt="NOMADS Secure" style={{height:"48px",width:"auto",objectFit:"contain"}} />
             <div className="footer-logo-text nav-logo-text">
               <span className="brand-name" style={{color:"#fff"}}>NOMADS SECURE</span>
               <span className="brand-tag">Build Brands with AI and Security</span>
