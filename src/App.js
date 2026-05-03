@@ -131,16 +131,14 @@ const GlobalStyles = () => (
     .svc-tabs { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 2rem 0 2.5rem; }
     .svc-tab { padding: 0.5rem 1.25rem; border-radius: 100px; font-family: var(--font-head); font-size: 0.78rem; font-weight: 700; cursor: pointer; border: 1.5px solid var(--border); background: #fff; color: var(--text-muted); transition: var(--transition); }
     .svc-tab:hover, .svc-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
-    .svc-category { display: grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap: 1rem; animation: fadeIn 0.3s ease; }
-    .svc-mini-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem 1.25rem; transition: var(--transition); cursor: pointer; position: relative; overflow: hidden; }
-    .svc-mini-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg,var(--navy),var(--gold)); transform: scaleX(0); transform-origin: left; transition: var(--transition); }
-    .svc-mini-card:hover::before { transform: scaleX(1); }
-    .svc-mini-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: var(--gold-border); }
-    .svc-mini-icon { font-size: 1.6rem; margin-bottom: 0.75rem; }
-    .svc-mini-name { font-family: var(--font-head); font-weight: 700; font-size: 0.88rem; color: var(--navy); line-height: 1.3; }
-    .svc-mini-arrow { color: var(--gold); font-size: 0.8rem; font-weight: 700; margin-top: 0.6rem; transition: var(--transition); font-family: var(--font-head); }
-    .svc-mini-card:hover .svc-mini-arrow { transform: translateX(4px); }
-
+    .svc-category { display: flex; flex-wrap: wrap; gap: 0.65rem; animation: fadeIn 0.3s ease; }
+    .svc-mini-card { display: inline-flex; align-items: center; gap: 0.55rem; background: #fff; border: 1.5px solid var(--border); border-radius: 100px; padding: 0.52rem 1.1rem; transition: var(--transition); cursor: pointer; white-space: nowrap; }
+    .svc-mini-card:hover { background: var(--navy); border-color: var(--navy); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .svc-mini-card:hover .svc-mini-name { color: #fff; }
+    .svc-mini-card:hover .svc-mini-icon { filter: brightness(10); }
+    .svc-mini-icon { font-size: 1rem; line-height: 1; flex-shrink: 0; }
+    .svc-mini-name { font-family: var(--font-head); font-weight: 700; font-size: 0.8rem; color: var(--navy); line-height: 1; }
+	
     /* Why us */
     .why-us { padding: 5.5rem 2rem; }
     .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -275,7 +273,7 @@ const GlobalStyles = () => (
     .info-item span { color: #fff; font-size: 0.87rem; }
     .social-links h4 { font-family: var(--font-head); font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); margin-bottom: 0.65rem; margin-top: 1.75rem; font-weight: 700; }
     .socials { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .social-btn { padding: 0.38rem 0.95rem; border: 1px solid rgba(255,255,255,0.22); border-radius: 8px; font-size: 0.78rem; font-family: var(--font-head); font-weight: 600; color: #fff; transition: var(--transition); cursor: pointer; background: none; }
+    .social-btn { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.42rem 1rem; border: 1px solid rgba(255,255,255,0.22); border-radius: 8px; font-size: 0.78rem; font-family: var(--font-head); font-weight: 600; color: #fff; transition: var(--transition); cursor: pointer; background: none; text-decoration: none; }
     .social-btn:hover { background: rgba(201,146,26,0.2); border-color: var(--gold); color: var(--gold-light); }
     .contact-form-wrap { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-md); }
     .contact-form-wrap h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 800; color: var(--navy); margin-bottom: 1.75rem; }
@@ -342,17 +340,14 @@ const defaultData = {
     {id:1,name:"Social Media Security",desc:"Protect your brand's social accounts from takeovers, impersonation, and phishing attacks."},
     {id:2,name:"Digital Marketing",desc:"Holistic digital marketing strategies tailored to your business goals and target audience."},
     {id:3,name:"SEO",desc:"Technical SEO, on-page optimisation, and link building to dominate search rankings."},
-    {id:4,name:"GEO (Generative Engine Optimisation)",desc:"Optimise your brand presence for AI-powered search engines like ChatGPT and Gemini."},
     {id:5,name:"Brand Marketing",desc:"Build a powerful, recognisable brand identity that resonates with your audience."},
     {id:6,name:"Performance Marketing",desc:"ROI-focused paid campaigns across Google, Meta, and beyond for maximum conversions."},
     {id:7,name:"Email Marketing",desc:"Automated email sequences that nurture leads, retain customers, and drive sales."},
     {id:8,name:"Social Media Management",desc:"Full management of your social channels — content, scheduling, engagement, and growth."},
     {id:9,name:"Website Development",desc:"Fast, secure, and conversion-optimised websites built to represent your brand perfectly."},
     {id:10,name:"Digital Footprint",desc:"Audit and manage your complete online presence across all digital touchpoints."},
-    {id:11,name:"Website Optimisation",desc:"Speed, UX, and CRO improvements to turn more visitors into paying customers."},
     {id:12,name:"Google Ads",desc:"Expert Google Ads management with keyword research, bidding strategy, and ROI tracking."},
     {id:13,name:"Meta Ads",desc:"High-converting Facebook and Instagram ad campaigns targeted to your ideal customers."},
-    {id:14,name:"Google Analytics",desc:"Setup, configuration, and reporting dashboards so you understand every click and conversion."},
   ],
   csServices: [
     {id:1,name:"Cybersecurity Services",desc:"Comprehensive cybersecurity consulting and implementation tailored to your risk profile."},
@@ -503,19 +498,19 @@ function HomePage({ setCurrentPage }) {
   const tabs = [
     { id: "digital", label: "📈 Digital Marketing", cards: [
       {icon:"📱",name:"Social Media Security"},{icon:"📈",name:"Digital Marketing"},
-      {icon:"🔍",name:"SEO"},{icon:"🌐",name:"GEO"},
+      {icon:"🔍",name:"SEO"},
       {icon:"🏷️",name:"Brand Marketing"},{icon:"🎯",name:"Performance Marketing"},
-      {icon:"📧",name:"Email Marketing"},{icon:"📲",name:"Social Media Management"},
+      {icon:"📲",name:"Social Media Management"},
       {icon:"💻",name:"Website Development"},{icon:"🔎",name:"Digital Footprint"},
-      {icon:"⚡",name:"Website Optimization"},{icon:"📊",name:"Google Ads"},
-      {icon:"📘",name:"Meta Ads"},{icon:"📉",name:"Google Analytics"},
+      {icon:"📊",name:"Google Ads"},
+      {icon:"📘",name:"Meta Ads"},
     ]},
     { id: "cyber", label: "🛡️ Cybersecurity", cards: [
-      {icon:"🛡️",name:"Cybersecurity Services"},{icon:"🔍",name:"Vulnerability Assessment"},
+      {icon:"🔍",name:"Vulnerability Assessment"},
       {icon:"💉",name:"Pentesting"},{icon:"🌐",name:"Website Security"},
       {icon:"🔧",name:"Technical Support"},
     ]},
-    { id: "ai", label: "🤖 AI Services", cards: [
+    { id: "Ai", label: "🤖 AI Services", cards: [
       {icon:"🤖",name:"AI Agent Development"},{icon:"🔗",name:"Agent Integration"},
       {icon:"🔐",name:"Agent Security"},
     ]},
@@ -613,9 +608,9 @@ function HomePage({ setCurrentPage }) {
           <div className="svc-category">
             {activeTabData.cards.map(c => (
               <div key={c.name} className="svc-mini-card">
-                <div className="svc-mini-icon">{c.icon}</div>
-                <div className="svc-mini-name">{c.name}</div>
-                <div className="svc-mini-arrow">→</div>
+                <span className="svc-mini-icon">{c.icon}</span>
+                <span className="svc-mini-name">{c.name}</span>
+                
               </div>
             ))}
           </div>
@@ -887,6 +882,17 @@ function BlogPage() {
   );
 }
 
+// ═════════════════════════════════════════════════════════════════════════════
+// 🔗 SOCIAL MEDIA LINKS
+// Replace each URL with your actual company profile URL.
+// These are used in: Contact page "Follow Us" buttons + Footer social icons.
+// ═════════════════════════════════════════════════════════════════════════════
+const SOCIAL_LINKS = {
+  linkedin:  "https://www.linkedin.com/company/nomads-secure/",  // ← paste your LinkedIn company page URL
+  youtube:   "https://www.youtube.com/@NomadsSecure",        // ← paste your YouTube channel URL
+  instagram: "https://www.instagram.com/nomadssecure_official",     // ← paste your Instagram profile URL
+};
+
 // ── CONTACT PAGE ──
 function ContactPage() {
   const [formData, setFormData] = useState({name:"",email:"",phone:"",service:"",budget:"",message:""});
@@ -897,6 +903,8 @@ function ContactPage() {
     setSubmitted(true);
     setTimeout(() => { setSubmitted(false); setFormData({name:"",email:"",phone:"",service:"",budget:"",message:""}); }, 5000);
   };
+  
+  const openSocial = (url) => window.open(url, "_blank", "noopener,noreferrer");
 
   return (
     <div className="page-enter">
@@ -917,7 +925,7 @@ function ContactPage() {
               <p className="contact-tagline">" Build Brands with AI and Security "</p>
               {[
                 {icon:"📧",label:"Email",val:"info@nomadssecure.com"},
-                {icon:"📞",label:"Phone",val:"+91 XXXXX XXXXX"},
+                {icon:"📞",label:"Phone",val:"+91 8077045216"},
                 {icon:"📍",label:"Location",val:"India"},
                 {icon:"⏰",label:"Hours",val:"Mon–Sat, 9:00 AM – 6:00 PM IST"},
               ].map(i => (
@@ -929,9 +937,32 @@ function ContactPage() {
               <div className="social-links">
                 <h4>Follow Us</h4>
                 <div className="socials">
-                  <button className="social-btn">LinkedIn</button>
-                  <button className="social-btn">Twitter / X</button>
-                  <button className="social-btn">Instagram</button>
+				  {/* ── LinkedIn ── */}
+                  <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer"
+                     className="social-btn" title="Follow us on LinkedIn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}>
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                     LinkedIn
+                  </a>
+				  
+				   {/* ── YouTube ── */}
+                  <a href={SOCIAL_LINKS.youtube} target="_blank" rel="noopener noreferrer"
+                     className="social-btn" title="Subscribe to our YouTube channel">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}>
+                      <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                     YouTube
+                  </a>
+
+                  {/* ── Instagram ── */}
+                  <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer"
+                     className="social-btn" title="Follow us on Instagram">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style={{flexShrink:0}}>
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                     Instagram
+                  </a>
                 </div>
               </div>
             </div>
