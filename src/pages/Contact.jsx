@@ -65,13 +65,13 @@ export default function Contact() {
           <h2>Get In Touch</h2>
           <p className="contact-tagline">" Build Brands with AI and Security "</p>
           <div className="contact-methods">
-            <a href="tel:+919876543210">
+            <a href="tel:+918077045216">
               <span className="contact-method-icon">
                 <Phone size={22} />
               </span>
               <span>
                 <strong>Phone</strong>
-                <small>+91 98765 43210</small>
+                <small>+91 8077045216</small>
               </span>
             </a>
             <a href="mailto:info@nomadssecure.com">
@@ -126,7 +126,7 @@ export default function Contact() {
             </label>
             <label>
               Phone Number
-              <input type="tel" name="phone" placeholder="+91..." required />
+              <input type="tel" name="phone" placeholder="+91XXXXXXXXXX" required />
             </label>
           </div>
           <label>
