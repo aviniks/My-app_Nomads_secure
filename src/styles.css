@@ -118,17 +118,17 @@ textarea {
   height: 44px;
   place-items: center;
   color: var(--white);
-  background: var(--white);
-  border-radius: 12px;
+  background: transparent;
+  border-radius: 0;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .brand-mark img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 3px;
+  object-fit: cover;
+  padding: 0;
 }
 
 .brand strong,
@@ -171,12 +171,12 @@ textarea {
 
 .nav-dropdown-menu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 0;
   min-width: 250px;
   display: grid;
   gap: 0.25rem;
-  padding: 0.7rem;
+  padding: 0.75rem;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -680,7 +680,22 @@ p {
 }
 
 .contact-hero {
-  background: linear-gradient(160deg, #ebf2ff 0%, var(--off-white) 55%, var(--gold-pale) 100%);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(201, 146, 26, 0.16), transparent 28%),
+    linear-gradient(135deg, #071126 0%, var(--navy-dark) 48%, var(--navy) 100%);
+}
+
+.services-hero {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(232, 168, 32, 0.16), transparent 30%),
+    linear-gradient(135deg, #071126 0%, var(--navy-dark) 48%, var(--navy) 100%);
+}
+
+.contact-hero h1,
+.contact-hero p,
+.services-hero h1,
+.services-hero p {
+  color: var(--white);
 }
 
 .blog-hero {
@@ -823,6 +838,83 @@ p {
 
 .legal-content h2 {
   font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.about-hero-banner {
+  min-height: 34vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(3rem, 7vw, 5rem) clamp(1.25rem, 6vw, 5rem);
+  text-align: center;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(232, 168, 32, 0.14), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(14, 165, 233, 0.14), transparent 28%),
+    linear-gradient(135deg, #071126 0%, var(--navy-dark) 45%, var(--navy) 100%);
+}
+
+.about-hero-banner div {
+  max-width: 920px;
+}
+
+.about-hero-banner h1 {
+  margin-bottom: 0.35rem;
+  color: var(--white);
+  font-size: clamp(2.4rem, 6vw, 5rem);
+}
+
+.about-hero-banner h2 {
+  color: var(--gold-light);
+  font-size: clamp(1.4rem, 3vw, 2.15rem);
+}
+
+.about-hero-banner p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.about-content-section {
+  display: grid;
+  gap: 2rem;
+}
+
+.about-content-section > div:not(.about-callout):not(.about-values) {
+  max-width: 980px;
+}
+
+.about-callout {
+  padding: clamp(1.5rem, 4vw, 2.4rem);
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.about-icon-grid,
+.about-value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+
+.about-icon-grid article,
+.about-value-grid article {
+  padding: 1.25rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-icon-grid svg,
+.about-value-grid svg {
+  color: var(--gold);
+}
+
+.about-icon-grid h3,
+.about-value-grid h3 {
+  margin: 0.7rem 0 0.35rem;
 }
 
 .faq-section {
@@ -1360,6 +1452,11 @@ textarea {
   border-radius: 10px;
 }
 
+.contact-method-icon svg {
+  display: block;
+  margin: auto;
+}
+
 .contact-methods strong {
   display: block;
   color: rgba(255, 255, 255, 0.55);
@@ -1416,10 +1513,14 @@ textarea {
 
 .blog-video-hero {
   position: relative;
+  width: min(calc(100% - 2rem), 1600px);
   height: 34vh;
   min-height: 300px;
+  margin: 1rem auto 0;
   overflow: hidden;
   background: var(--navy-dark);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
 }
 
 .blog-video-hero video,
@@ -1618,13 +1719,10 @@ textarea {
 }
 
 .service-detail-list div small {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
 }
 
-.service-icon,
-.brand-mark {
+.service-icon {
   background: linear-gradient(135deg, #0ea5e9, #7c3aed 55%, var(--gold));
 }
 

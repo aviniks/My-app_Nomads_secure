@@ -48,13 +48,13 @@ export default function Footer() {
         <div>
           <h3>Contact</h3>
           <p className="footer-contact">
-            <Phone size={16} /> +91 98765 43210
+            <Phone size={16} /> +91 8077045216
           </p>
           <p className="footer-contact">
             <Mail size={16} /> info@nomadssecure.com
           </p>
           <p className="footer-contact">
-            <MapPin size={16} /> India
+            <MapPin size={16} /> Noida, UP, India
           </p>
         </div>
       </div>

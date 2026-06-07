@@ -89,7 +89,7 @@ export default function Contact() {
               </span>
               <span>
                 <strong>Location</strong>
-                <small>India</small>
+                <small>Noida, UP, India</small>
               </span>
             </span>
             <span>
@@ -139,10 +139,15 @@ export default function Contact() {
               <option value="" disabled>
                 Select a service
               </option>
-              <option>Digital Marketing Services</option>
-              <option>Cybersecurity Services</option>
-              <option>AI Security and Agent</option>
-              <option>Career and Training</option>
+              <option>Job find</option>
+              <option>Resume building and review</option>
+              <option>Workshop & webinar</option>
+              <option>Performance marketing</option>
+              <option>Social Media security audit</option>
+              <option>Vibe code audit</option>
+              <option>SEO analysis</option>
+              <option>Website optimization</option>
+              <option>Others</option>
             </select>
           </label>
           <label>

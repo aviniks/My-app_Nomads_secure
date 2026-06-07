@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, CalendarDays, Clock3 } from 'lucide-react';
-import blogBanner from '../../banner/Blog banner.mp4';
+import blogBanner from '../../banner/banner.mp4';
 
 const blogPosts = [
   {

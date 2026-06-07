@@ -21,10 +21,6 @@ export const serviceGroups = [
     accent: 'gold',
     services: [
       {
-        name: 'Digital Marketing',
-        description: 'Holistic digital marketing strategies tailored to your business goals and target audience.',
-      },
-      {
         name: 'SEO',
         description: 'Technical SEO, on-page optimisation, and link building to dominate search rankings.',
       },
