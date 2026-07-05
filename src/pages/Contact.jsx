@@ -1,5 +1,8 @@
+
 import { useEffect } from 'react';
+import { useState  } from "react"; 
 import { Clock3, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react';
+import { supabase } from "../supabaseClient.jsx";
 
 const faqs = [
   {
@@ -37,13 +40,56 @@ export default function Contact() {
 
     meta.setAttribute('content', description);
   }, []);
+  const [formData, setFormData] = useState({
+  name: "",
+  phone: "",
+  email: "",
+  service: "",
+  organization: "",
+  message: "",
+});
+  const handleChange = (event) => {
+	const { name, value } = event.target;
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.currentTarget;
-    form.reset();
-    alert('Thank you. Your consultation request has been received.');
-  };
+	setFormData((current) => ({
+		...current,
+		[name]: value,
+  }));
+};
+  const handleSubmit = async (event) => {
+  event.preventDefault();
+
+  const { error } = await supabase
+    .from("contacts")
+    .insert([
+      {
+        name: formData.name, 
+        Phone_Number: formData.phone, 
+        Email: formData.email, 
+        Service: formData.service, 
+        Organization: formData.organization, 
+        Message: formData.message, 
+      },
+    ]);
+
+  if (error) {
+    alert("Something went wrong.");
+    console.log(error);
+    return;
+  }
+
+  alert("Thank you! Your consultation request has been received.");
+
+  setFormData({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    organization: "",
+    message: "",
+  });
+};
+
 
   return (
     <>
@@ -122,20 +168,20 @@ export default function Contact() {
           <div className="form-row">
             <label>
               Full Name
-              <input type="text" name="name" placeholder="Your name" required />
+              <input type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
             </label>
             <label>
               Phone Number
-              <input type="tel" name="phone" placeholder="+91XXXXXXXXXX" required />
+              <input type="tel" name="phone" placeholder="+91XXXXXXXXXX" value={formData.phone} onChange={handleChange} required />
             </label>
           </div>
           <label>
             Email Address
-            <input type="email" name="email" placeholder="you@example.com" required />
+            <input type="email" name="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} required />
           </label>
           <label>
             Service Interest
-            <select name="service" required defaultValue="">
+            <select name="service" value={formData.service} onChange={handleChange} required >
               <option value="" disabled>
                 Select a service
               </option>
@@ -151,8 +197,8 @@ export default function Contact() {
             </select>
           </label>
           <label>
-            Organization / Company
-            <input type="text" name="organization" placeholder="Your organization" required />
+            Organization / Designation
+            <input type="text" name="organization" placeholder="Your organization" value={formData.organization} onChange={handleChange} required />
           </label>
           <label>
             Message
@@ -160,9 +206,12 @@ export default function Contact() {
               name="message"
               rows="5"
               placeholder="Share your requirement or consultation goal"
+			  value={formData.message} 
+			  onChange={handleChange}
               required
             />
           </label>
+		 
           <button className="primary-button form-submit" type="submit">
             Submit Consultation Request
           </button>
