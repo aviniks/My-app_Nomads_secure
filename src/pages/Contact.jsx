@@ -1,8 +1,6 @@
-
-import { useEffect } from 'react';
-import { useState  } from "react"; 
+import { useEffect, useState } from 'react';
 import { Clock3, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react';
-import { supabase } from "../supabaseClient.jsx";
+import { supabase } from '../supabaseClient.jsx';
 
 const faqs = [
   {
@@ -24,7 +22,19 @@ const faqs = [
   },
 ];
 
+const initialFormData = {
+  name: '',
+  phone: '',
+  email: '',
+  service: '',
+  organization: '',
+  message: '',
+};
+
 export default function Contact() {
+  const [formData, setFormData] = useState(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     document.title = 'Contact Us | Nomads Secure Group';
 
@@ -40,63 +50,47 @@ export default function Contact() {
 
     meta.setAttribute('content', description);
   }, []);
-  const [formData, setFormData] = useState({
-  name: "",
-  phone: "",
-  email: "",
-  service: "",
-  organization: "",
-  message: "",
-});
+
   const handleChange = (event) => {
-	const { name, value } = event.target;
+    const { name, value } = event.target;
+    setFormData((current) => ({ ...current, [name]: value }));
+  };
 
-	setFormData((current) => ({
-		...current,
-		[name]: value,
-  }));
-};
   const handleSubmit = async (event) => {
-  event.preventDefault();
+    event.preventDefault();
+    setIsSubmitting(true);
 
-  const { error } = await supabase
-    .from("contacts")
-    .insert([
-      {
-        name: formData.name, 
-        Phone_Number: formData.phone, 
-        Email: formData.email, 
-        Service: formData.service, 
-        Organization: formData.organization, 
-        Message: formData.message, 
-      },
-    ]);
+    const { error } = await supabase
+      .from('contacts')
+      .insert([
+        {
+          Full_Name: formData.name,
+          Phone_Number: formData.phone,
+          Email: formData.email,
+          Service: formData.service,
+          Organization: formData.organization,
+          Message: formData.message,
+        },
+      ]);
 
-  if (error) {
-    alert("Something went wrong.");
-    console.log(error);
-    return;
-  }
+    setIsSubmitting(false);
 
-  alert("Thank you! Your consultation request has been received.");
+    if (error) {
+      alert('Something went wrong.');
+      console.log(error);
+      return;
+    }
 
-  setFormData({
-    name: "",
-    phone: "",
-    email: "",
-    service: "",
-    organization: "",
-    message: "",
-  });
-};
-
+    alert('Thank you! Your consultation request has been received.');
+    setFormData(initialFormData);
+  };
 
   return (
     <>
       <section className="page-hero contact-hero">
         <div>
           <span className="eyebrow">Contacts</span>
-          <h1>Let’s Build Something Great</h1>
+          <h1>Let's Build Something Great</h1>
           <p>
             We're here to help businesses, professionals, and learners connect with
             technology-driven solutions. Reach out to us for Digital Marketing,
@@ -168,20 +162,41 @@ export default function Contact() {
           <div className="form-row">
             <label>
               Full Name
-              <input type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </label>
             <label>
               Phone Number
-              <input type="tel" name="phone" placeholder="+91XXXXXXXXXX" value={formData.phone} onChange={handleChange} required />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="+91XXXXXXXXXX"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+              />
             </label>
           </div>
           <label>
             Email Address
-            <input type="email" name="email" placeholder="you@example.com" value={formData.email} onChange={handleChange} required />
+            <input
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
           </label>
           <label>
             Service Interest
-            <select name="service" value={formData.service} onChange={handleChange} required >
+            <select name="service" value={formData.service} onChange={handleChange} required>
               <option value="" disabled>
                 Select a service
               </option>
@@ -198,7 +213,14 @@ export default function Contact() {
           </label>
           <label>
             Organization / Designation
-            <input type="text" name="organization" placeholder="Your organization" value={formData.organization} onChange={handleChange} required />
+            <input
+              type="text"
+              name="organization"
+              placeholder="Your organization"
+              value={formData.organization}
+              onChange={handleChange}
+              required
+            />
           </label>
           <label>
             Message
@@ -206,14 +228,13 @@ export default function Contact() {
               name="message"
               rows="5"
               placeholder="Share your requirement or consultation goal"
-			  value={formData.message} 
-			  onChange={handleChange}
+              value={formData.message}
+              onChange={handleChange}
               required
             />
           </label>
-		 
-          <button className="primary-button form-submit" type="submit">
-            Submit Consultation Request
+          <button className="primary-button form-submit" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
           </button>
         </form>
       </section>
