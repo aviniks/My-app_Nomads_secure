@@ -14,7 +14,7 @@ const faqs = [
   {
     question: 'Can I inquire about workshops?',
     answer:
-      'Yes, schools, colleges, and organizations can contact us regarding workshops and awareness programs.',
+      'Yes, schools, colleges, and organisations can contact us regarding workshops and awareness programs.',
   },
   {
     question: 'How long does it take to receive a response?',
@@ -27,7 +27,7 @@ const initialFormData = {
   phone: '',
   email: '',
   service: '',
-  organization: '',
+  organisation: '',
   message: '',
 };
 
@@ -68,7 +68,7 @@ export default function Contact() {
           Phone_Number: formData.phone,
           Email: formData.email,
           Service: formData.service,
-          Organization: formData.organization,
+          Organisation: formData.organisation,
           Message: formData.message,
         },
       ]);
@@ -212,12 +212,12 @@ export default function Contact() {
             </select>
           </label>
           <label>
-            Organization / Designation
+            Organisation / Designation
             <input
               type="text"
-              name="organization"
-              placeholder="Your organization"
-              value={formData.organization}
+              name="organisation"
+              placeholder="Your organisation"
+              value={formData.organisation}
               onChange={handleChange}
               required
             />
