@@ -1,24 +1,33 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
+import privacyPolicyPdf from '../../banner/Privacy Policy.pdf';
+import termsOfServicePdf from '../../banner/Terms of Service.pdf';
+import cookiePolicyPdf from '../../banner/Cookie Policy.pdf';
 
 const legalContent = {
   '/privacy-policy': {
     eyebrow: 'Privacy Policy',
     title: 'Privacy Policy',
     text:
-      'This page explains how NOMADS Secure collects, uses, and protects consultation requests, contact details, and service-related information shared through the website.',
+      'Learn how NOMADS Secure collects, uses, stores, and protects information shared through consultation requests, forms, and service conversations.',
+    pdf: privacyPolicyPdf,
+    cta: 'Open Privacy Policy',
   },
   '/terms-of-service': {
     eyebrow: 'Terms of Service',
     title: 'Terms of Service',
     text:
-      'This page outlines the basic terms for using this website, requesting consultations, and engaging with NOMADS Secure services.',
+      'Review the terms for using this website, requesting consultations, and engaging with NOMADS Secure services and resources.',
+    pdf: termsOfServicePdf,
+    cta: 'Open Terms of Service',
   },
   '/cookie-policy': {
     eyebrow: 'Cookie Policy',
     title: 'Cookie Policy',
     text:
-      'This page explains how cookies and similar technologies may be used to improve website performance, analytics, and user experience.',
+      'Understand how cookies and similar technologies may support website functionality, analytics, performance, and user experience.',
+    pdf: cookiePolicyPdf,
+    cta: 'Open Cookie Policy',
   },
 };
 
@@ -40,12 +49,22 @@ export default function LegalPage() {
       </section>
 
       <section className="section legal-content">
-        <h2>Policy Details</h2>
-        <p>
-          Add your official legal content here before publishing the website. Include
-          company details, user rights, data handling practices, service limitations,
-          and contact information for legal or privacy questions.
-        </p>
+        <div className="legal-document-head">
+          <div>
+            <span className="eyebrow">Official Document</span>
+            <h2>{content.title}</h2>
+            <p>
+              The policy below is loaded from the official PDF kept with the website
+              resources. You can read it here or open it in a new tab.
+            </p>
+          </div>
+          <a className="primary-button" href={content.pdf} target="_blank" rel="noreferrer">
+            {content.cta}
+          </a>
+        </div>
+        <div className="policy-document">
+          <iframe src={content.pdf} title={`${content.title} PDF`} />
+        </div>
       </section>
     </>
   );

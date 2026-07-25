@@ -70,7 +70,7 @@ export default function Services() {
                 </span>
                 <h2>{group.title}</h2>
                 <p>{group.summary}</p>
-                <Link className="text-link" to="/contacts">
+                <Link className="primary-button service-consult-button" to="/contacts">
                   Request consultation <ArrowRight size={16} />
                 </Link>
               </div>
@@ -126,3 +126,4 @@ export default function Services() {
     </>
   );
 }
+

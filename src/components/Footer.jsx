@@ -3,6 +3,8 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import { serviceGroups } from '../data/services.js';
 import logo from '../../banner/logo.png';
 
+const scrollToTop = () => window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+
 export default function Footer() {
   return (
     <footer className="site-footer">
@@ -35,14 +37,14 @@ export default function Footer() {
 
         <div>
           <h3>Quick Links</h3>
-          <Link to="/home">Home</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/about">About</Link>
-          <Link to="/blog">Blog</Link>
-          <Link to="/contacts">Contacts</Link>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms-of-service">Terms of Service</Link>
-          <Link to="/cookie-policy">Cookie Policy</Link>
+          <Link to="/home" onClick={scrollToTop}>Home</Link>
+          <Link to="/services" onClick={scrollToTop}>Services</Link>
+          <Link to="/about" onClick={scrollToTop}>About</Link>
+          <Link to="/blog" onClick={scrollToTop}>Blog</Link>
+          <Link to="/contacts" onClick={scrollToTop}>Contacts</Link>
+          <Link to="/privacy-policy" onClick={scrollToTop}>Privacy Policy</Link>
+          <Link to="/terms-of-service" onClick={scrollToTop}>Terms of Service</Link>
+          <Link to="/cookie-policy" onClick={scrollToTop}>Cookie Policy</Link>
         </div>
 
         <div>
@@ -64,3 +66,4 @@ export default function Footer() {
     </footer>
   );
 }
+

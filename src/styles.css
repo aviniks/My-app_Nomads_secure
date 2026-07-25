@@ -1909,3 +1909,68 @@ textarea {
     bottom: 1.5rem;
   }
 }
+
+.page-hero.contact-hero h1,
+.page-hero.contact-hero p,
+.page-hero.services-hero h1,
+.page-hero.services-hero p {
+  color: var(--white);
+}
+
+.page-hero.contact-hero .eyebrow,
+.page-hero.services-hero .eyebrow {
+  color: var(--gold-light);
+}
+
+.service-consult-button {
+  width: fit-content;
+  min-height: 44px;
+  margin-top: 0.35rem;
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 10px 24px rgba(27, 45, 91, 0.22);
+}
+
+.service-consult-button:hover {
+  background: var(--gold);
+}
+
+.legal-document-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.legal-document-head p {
+  max-width: 680px;
+  margin-bottom: 0;
+}
+
+.policy-document {
+  overflow: hidden;
+  min-height: 640px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--off-white);
+}
+
+.policy-document iframe {
+  display: block;
+  width: 100%;
+  height: min(78vh, 820px);
+  min-height: 640px;
+  border: 0;
+}
+
+@media (max-width: 760px) {
+  .legal-document-head {
+    display: grid;
+  }
+
+  .service-consult-button {
+    width: 100%;
+  }
+}
