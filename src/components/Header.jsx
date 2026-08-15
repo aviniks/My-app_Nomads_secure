@@ -5,7 +5,7 @@ import { serviceGroups } from '../data/services.js';
 import logo from '../../banner/logo.png';
 
 const navItems = [
-  { label: 'Home', to: '/home' },
+  { label: 'Home', to: '/' },
 ];
 
 const secondaryNavItems = [
@@ -16,10 +16,16 @@ const secondaryNavItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+
+  const closeMenus = () => {
+    setIsOpen(false);
+    setIsServicesOpen(false);
+  };
 
   return (
     <header className="site-header">
-      <Link to="/home" className="brand" onClick={() => setIsOpen(false)}>
+      <Link to="/" className="brand" onClick={closeMenus}>
         <span className="brand-mark">
           <img src={logo} alt="NomadsSecure logo" />
         </span>
@@ -43,16 +49,21 @@ export default function Header() {
           <NavLink
             key={item.to}
             to={item.to}
-            onClick={() => setIsOpen(false)}
+            onClick={closeMenus}
             className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             {item.label}
           </NavLink>
         ))}
-        <div className="nav-dropdown">
+        <div
+          className={isServicesOpen ? 'nav-dropdown open' : 'nav-dropdown'}
+          onMouseEnter={() => setIsServicesOpen(true)}
+          onMouseLeave={() => setIsServicesOpen(false)}
+        >
           <NavLink
             to="/services"
-            onClick={() => setIsOpen(false)}
+            onClick={closeMenus}
+            onFocus={() => setIsServicesOpen(true)}
             className={({ isActive }) => (isActive ? 'active nav-dropdown-trigger' : 'nav-dropdown-trigger')}
           >
             Services <ChevronDown size={15} />
@@ -62,7 +73,7 @@ export default function Header() {
               <Link
                 key={group.id}
                 to={`/services#${group.id}`}
-                onClick={() => setIsOpen(false)}
+                onClick={closeMenus}
               >
                 {group.title}
               </Link>
@@ -73,13 +84,13 @@ export default function Header() {
           <NavLink
             key={item.to}
             to={item.to}
-            onClick={() => setIsOpen(false)}
+            onClick={closeMenus}
             className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             {item.label}
           </NavLink>
         ))}
-        <Link className="nav-cta" to="/contacts" onClick={() => setIsOpen(false)}>
+        <Link className="nav-cta" to="/contacts" onClick={closeMenus}>
           Book Consultation
         </Link>
       </nav>

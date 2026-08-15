@@ -65,19 +65,28 @@ export default function Services() {
           return (
             <article id={group.id} key={group.id} className="service-detail">
               <div className="service-detail-copy">
-                <span className="service-icon large">
-                  <Icon size={32} />
-                </span>
-                <h2>{group.title}</h2>
-                <p>{group.summary}</p>
-                <Link className="primary-button service-consult-button" to="/contacts">
-                  Request consultation <ArrowRight size={16} />
-                </Link>
+                <div className="service-visual" aria-hidden="true">
+                  <span className="service-icon large">
+                    <Icon size={34} />
+                  </span>
+                  <span className="service-orbit service-orbit-one" />
+                  <span className="service-orbit service-orbit-two" />
+                </div>
+                <div className="service-detail-text">
+                  <span className="service-label">NOMADS Secure</span>
+                  <h2>{group.title}</h2>
+                  <p>{group.summary}</p>
+                  <Link className="primary-button service-consult-button" to="/contacts">
+                    Request consultation <ArrowRight size={16} />
+                  </Link>
+                </div>
               </div>
               <div className="service-detail-list">
                 {group.services.map((service) => (
                   <div key={service.name}>
-                    <CheckCircle2 size={18} />
+                    <span className="service-check">
+                      <CheckCircle2 size={17} />
+                    </span>
                     <span>
                       <strong>{service.name}</strong>
                       <small>{service.description}</small>

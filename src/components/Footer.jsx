@@ -10,7 +10,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-grid">
         <div>
-          <Link to="/home" className="brand footer-brand">
+          <Link to="/" className="brand footer-brand">
             <span className="brand-mark">
               <img src={logo} alt="NomadsSecure logo" />
             </span>
@@ -37,7 +37,7 @@ export default function Footer() {
 
         <div>
           <h3>Quick Links</h3>
-          <Link to="/home" onClick={scrollToTop}>Home</Link>
+          <Link to="/" onClick={scrollToTop}>Home</Link>
           <Link to="/services" onClick={scrollToTop}>Services</Link>
           <Link to="/about" onClick={scrollToTop}>About</Link>
           <Link to="/blog" onClick={scrollToTop}>Blog</Link>
