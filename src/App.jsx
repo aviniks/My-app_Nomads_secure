@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
+import CanonicalUrl from './components/CanonicalUrl.jsx';
 import Home from './pages/Home.jsx';
 import Services from './pages/Services.jsx';
 import About from './pages/About.jsx';
@@ -13,6 +14,7 @@ export default function App() {
   return (
     <div className="app-shell">
       <ScrollToTop />
+      <CanonicalUrl />
       <Header />
       <main>
         <Routes>
@@ -22,7 +24,7 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contacts" element={<Contact />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Navigate to="/contacts" replace />} />
           <Route path="/privacy-policy" element={<LegalPage />} />
           <Route path="/terms-of-service" element={<LegalPage />} />
           <Route path="/cookie-policy" element={<LegalPage />} />
@@ -32,4 +34,3 @@ export default function App() {
     </div>
   );
 }
-

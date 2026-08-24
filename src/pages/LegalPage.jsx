@@ -13,7 +13,7 @@ const legalContent = {
         heading: '1. Introduction',
         paragraphs: [
           'NomadsSecure Group Pvt Ltd ("NomadsSecure", "Company", "we", "our", or "us") is committed to protecting your privacy and safeguarding your personal information.',
-          'This Privacy Policy explains how we collect, use, process, store, and protect information collected through our website, www.nomadssecure.com, and through our cybersecurity, artificial intelligence, digital marketing, technology consulting, website development, and training services.',
+          'This Privacy Policy explains how we collect, use, process, store, and protect information collected through our website, nomadssecure.com, and through our cybersecurity, artificial intelligence, digital marketing, technology consulting, website development, and training services.',
           'By accessing our website or using our services, you agree to the practices described in this Privacy Policy.',
         ],
       },
@@ -22,7 +22,7 @@ const legalContent = {
         bullets: [
           'Company Name: NomadsSecure Group Pvt Ltd',
           'Registered Office: Noida, Uttar Pradesh, India',
-          'Website: www.nomadssecure.com',
+          'Website: nomadssecure.com',
           'Email: info@nomadssecure.com',
         ],
       },
@@ -172,7 +172,7 @@ const legalContent = {
           'NomadsSecure Group Pvt Ltd',
           'Noida, Uttar Pradesh, India',
           'Email: info@nomadssecure.com',
-          'Website: www.nomadssecure.com',
+          'Website: nomadssecure.com',
         ],
       },
     ],
@@ -187,7 +187,7 @@ const legalContent = {
       {
         heading: '1. Acceptance of Terms',
         paragraphs: [
-          'Welcome to NomadsSecure Group Pvt Ltd ("NomadsSecure", "Company", "we", "our", or "us"). These Terms of Service govern your access to and use of our website, services, educational resources, cybersecurity solutions, AI services, digital marketing services, consulting services, training programs, and related offerings available through www.nomadssecure.com.',
+          'Welcome to NomadsSecure Group Pvt Ltd ("NomadsSecure", "Company", "we", "our", or "us"). These Terms of Service govern your access to and use of our website, services, educational resources, cybersecurity solutions, AI services, digital marketing services, consulting services, training programs, and related offerings available through nomadssecure.com.',
           'By accessing our website or using our services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you should discontinue use of our website and services.',
         ],
       },
@@ -196,7 +196,7 @@ const legalContent = {
         bullets: [
           'Company Name: NomadsSecure Group Pvt Ltd',
           'Registered Office: Noida, Uttar Pradesh, India',
-          'Website: www.nomadssecure.com',
+          'Website: nomadssecure.com',
           'Email: info@nomadssecure.com',
         ],
       },
@@ -333,7 +333,7 @@ const legalContent = {
           'NomadsSecure Group Pvt Ltd',
           'Noida, Uttar Pradesh, India',
           'Email: info@nomadssecure.com',
-          'Website: www.nomadssecure.com',
+          'Website: nomadssecure.com',
         ],
       },
     ],
@@ -348,7 +348,7 @@ const legalContent = {
       {
         heading: '1. Introduction',
         paragraphs: [
-          'This Cookie Policy explains how NomadsSecure Group Pvt Ltd ("NomadsSecure", "we", "our", or "us") uses cookies and similar technologies on our website, www.nomadssecure.com.',
+          'This Cookie Policy explains how NomadsSecure Group Pvt Ltd ("NomadsSecure", "we", "our", or "us") uses cookies and similar technologies on our website, nomadssecure.com.',
           'This policy should be read together with our Privacy Policy, which explains how we collect, use, and protect personal information.',
           'By continuing to use our website, you agree to the use of cookies in accordance with this Cookie Policy.',
         ],
@@ -456,7 +456,7 @@ const legalContent = {
           'NomadsSecure Group Pvt Ltd',
           'Noida, Uttar Pradesh, India',
           'Email: info@nomadssecure.com',
-          'Website: www.nomadssecure.com',
+          'Website: nomadssecure.com',
         ],
       },
     ],
